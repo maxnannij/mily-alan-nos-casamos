@@ -99,7 +99,7 @@ function RsvpButton({ className = "" }: { className?: string }) {
       href={RSVP}
       target="_blank"
       rel="noreferrer"
-      className={`inline-block border border-rose bg-rose px-9 py-4 text-[11px] tracking-[0.35em] text-ivory uppercase transition-colors hover:bg-gold hover:border-gold hover:text-foreground ${className}`}
+      className={`inline-block border border-gold bg-gold px-9 py-4 text-[11px] tracking-[0.35em] text-foreground uppercase transition-colors hover:bg-rose hover:border-rose hover:text-ivory ${className}`}
     >
       Confirmar asistencia
     </a>
@@ -120,7 +120,7 @@ function Index() {
         <div className="absolute inset-0 bg-foreground/60" />
         <nav className="absolute top-0 right-0 left-0 hidden justify-center gap-10 py-6 text-[11px] tracking-[0.35em] text-ivory/80 uppercase md:flex">
           {links.map(([l, h]) => <a key={h} href={h} className="hover:text-gold">{l}</a>)}
-          <a href={RSVP} target="_blank" rel="noreferrer" className="border border-rose px-4 py-1 text-rose hover:bg-rose hover:text-ivory">Confirmar asistencia</a>
+          <a href={RSVP} target="_blank" rel="noreferrer" className="border border-gold px-4 py-1 text-gold hover:bg-gold hover:text-foreground">Confirmar asistencia</a>
         </nav>
         <div className="relative text-ivory">
           <p className="text-xs tracking-[0.5em] text-gold uppercase">Nos casamos</p>
@@ -170,7 +170,7 @@ function Index() {
           <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground">
             Queremos que brilles con nosotros. Te pedimos vestimenta elegante para celebrar esta noche tan especial.
           </p>
-          <div className="mt-12 border border-rose bg-blush px-8 py-10">
+          <div className="mt-12 border border-gold bg-blush px-8 py-10">
             <p className="text-[10px] tracking-[0.4em] text-rose uppercase">Atención · Damas</p>
             <p className="mt-5 font-serif text-3xl leading-snug md:text-4xl">
               Las mujeres <span className="font-semibold text-rose">NO deben vestir rosado</span>.
