@@ -43,7 +43,7 @@ function Splash({ onDone }: { onDone: () => void }) {
         ¡NOS CASAMOS!
       </h1>
       <div className="animate-rise gold-rule mt-8 w-48" style={{ animationDelay: ".9s" }} />
-      <p className="animate-rise mt-6 font-serif text-xl italic text-rose" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
+      <p className="animate-rise mt-6 font-serif text-xl italic text-rose-light" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
     </div>
   );
 }
@@ -147,7 +147,7 @@ function Index() {
       {/* Fecha y lugar */}
       <section id="lugar" className="bg-foreground px-6 py-28 text-ivory">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs tracking-[0.45em] text-rose uppercase">Cuándo y dónde</p>
+          <p className="text-xs tracking-[0.45em] text-rose-light uppercase">Cuándo y dónde</p>
           <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">Sábado 13 de marzo, 2027</h2>
           <div className="gold-rule mx-auto mt-6 w-32" />
           <Countdown />

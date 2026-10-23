@@ -14,8 +14,9 @@
  * All colors MUST use oklch format.
  *
  * Palette: gold-led with pink accents. Warm ivory ground, deep wine dark
- * sections, gold for CTAs and labels, rose reserved for the few accents
- * that must stand out.
+ * sections, gold for CTAs and labels, rose reserved for the accents that
+ * must stand out. -deep and -light variants exist so small text keeps
+ * enough contrast on light and on dark surfaces.
  *
  * To add a new semantic color:
  * 1. Add the variable to :root (light value) and .dark (dark value)
@@ -59,6 +60,7 @@
   --color-gold-deep: var(--gold-deep);
   --color-ivory: var(--ivory);
   --color-rose: var(--rose);
+  --color-rose-light: var(--rose-light);
   --color-blush: var(--blush);
   --font-serif: "Cormorant Garamond", serif;
   --font-script: "Pinyon Script", cursive;
@@ -78,8 +80,9 @@
   --background: oklch(0.985 0.008 85);
   --foreground: oklch(0.25 0.045 15);
   --gold: oklch(0.72 0.11 80);
-  --gold-deep: oklch(0.52 0.1 75);
-  --rose: oklch(0.66 0.13 5);
+  --gold-deep: oklch(0.45 0.1 75);
+  --rose: oklch(0.55 0.14 5);
+  --rose-light: oklch(0.76 0.12 5);
   --blush: oklch(0.955 0.03 40);
   --ivory: oklch(0.985 0.008 85);
   --card: oklch(1 0 0);
@@ -91,7 +94,7 @@
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.52 0.035 25);
+  --muted-foreground: oklch(0.45 0.04 25);
   --accent: oklch(0.968 0.007 247.896);
   --accent-foreground: oklch(0.208 0.042 265.755);
   --destructive: oklch(0.577 0.245 27.325);
@@ -120,6 +123,7 @@
   --gold: oklch(0.78 0.11 80);
   --gold-deep: oklch(0.82 0.09 80);
   --rose: oklch(0.72 0.13 5);
+  --rose-light: oklch(0.78 0.12 5);
   --blush: oklch(0.3 0.045 30);
   --ivory: oklch(0.96 0.01 85);
   --card: oklch(0.208 0.042 265.755);
@@ -171,4 +175,4 @@
 }
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @utility animate-rise { animation: rise 1.4s cubic-bezier(.2,.7,.2,1) both; }
-@utility gold-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), var(--rose), transparent); }
+@utility gold-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), var(--rose-light), transparent); }
