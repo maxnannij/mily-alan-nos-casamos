@@ -68,7 +68,7 @@ function Countdown() {
 function SectionTitle({ kicker, title }: { kicker: string; title: string }) {
   return (
     <div className="mb-14 text-center">
-      <p className="text-xs tracking-[0.45em] text-gold uppercase">{kicker}</p>
+      <p className="text-xs tracking-[0.45em] text-gold-deep uppercase">{kicker}</p>
       <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">{title}</h2>
       <div className="gold-rule mx-auto mt-6 w-32" />
     </div>
@@ -85,7 +85,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
       </div>
       <button
         onClick={() => { navigator.clipboard.writeText(value); setOk(true); setTimeout(() => setOk(false), 1800); }}
-        className="shrink-0 border border-gold px-4 py-2 text-[10px] tracking-[0.3em] uppercase transition-colors hover:bg-gold hover:text-foreground"
+        className="shrink-0 border border-gold-deep text-gold-deep px-4 py-2 text-[10px] tracking-[0.3em] uppercase transition-colors hover:bg-gold hover:border-gold hover:text-foreground"
       >
         {ok ? "Copiado" : "Copiar"}
       </button>
