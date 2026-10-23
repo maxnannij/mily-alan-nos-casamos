@@ -43,7 +43,7 @@ function Splash({ onDone }: { onDone: () => void }) {
         ¡NOS CASAMOS!
       </h1>
       <div className="animate-rise gold-rule mt-8 w-48" style={{ animationDelay: ".9s" }} />
-      <p className="animate-rise mt-6 font-serif text-xl italic text-rose" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
+      <p className="animate-rise mt-6 font-serif text-xl italic text-rose-light" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
     </div>
   );
 }
@@ -58,7 +58,7 @@ function Countdown() {
       {parts.map(([l, v]) => (
         <div key={l} className="text-center">
           <div className="font-serif text-4xl font-light md:text-5xl">{now === null ? "–" : String(v).padStart(2, "0")}</div>
-          <div className="mt-1 text-[10px] tracking-[0.3em] text-muted-foreground uppercase">{l}</div>
+          <div className="mt-1 text-[10px] tracking-[0.3em] text-ivory/60 uppercase">{l}</div>
         </div>
       ))}
     </div>
@@ -68,7 +68,7 @@ function Countdown() {
 function SectionTitle({ kicker, title }: { kicker: string; title: string }) {
   return (
     <div className="mb-14 text-center">
-      <p className="text-xs tracking-[0.45em] text-gold uppercase">{kicker}</p>
+      <p className="text-xs tracking-[0.45em] text-gold-deep uppercase">{kicker}</p>
       <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">{title}</h2>
       <div className="gold-rule mx-auto mt-6 w-32" />
     </div>
@@ -85,7 +85,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
       </div>
       <button
         onClick={() => { navigator.clipboard.writeText(value); setOk(true); setTimeout(() => setOk(false), 1800); }}
-        className="shrink-0 border border-gold px-4 py-2 text-[10px] tracking-[0.3em] uppercase transition-colors hover:bg-gold hover:text-foreground"
+        className="shrink-0 border border-gold-deep text-gold-deep px-4 py-2 text-[10px] tracking-[0.3em] uppercase transition-colors hover:bg-gold hover:border-gold hover:text-foreground"
       >
         {ok ? "Copiado" : "Copiar"}
       </button>
@@ -99,7 +99,7 @@ function RsvpButton({ className = "" }: { className?: string }) {
       href={RSVP}
       target="_blank"
       rel="noreferrer"
-      className={`inline-block border border-rose bg-rose px-9 py-4 text-[11px] tracking-[0.35em] text-ivory uppercase transition-colors hover:bg-gold hover:border-gold hover:text-foreground ${className}`}
+      className={`inline-block border border-gold bg-gold px-9 py-4 text-[11px] tracking-[0.35em] text-foreground uppercase transition-colors hover:bg-rose hover:border-rose hover:text-ivory ${className}`}
     >
       Confirmar asistencia
     </a>
@@ -120,7 +120,7 @@ function Index() {
         <div className="absolute inset-0 bg-foreground/60" />
         <nav className="absolute top-0 right-0 left-0 hidden justify-center gap-10 py-6 text-[11px] tracking-[0.35em] text-ivory/80 uppercase md:flex">
           {links.map(([l, h]) => <a key={h} href={h} className="hover:text-gold">{l}</a>)}
-          <a href={RSVP} target="_blank" rel="noreferrer" className="border border-rose px-4 py-1 text-rose hover:bg-rose hover:text-ivory">Confirmar asistencia</a>
+          <a href={RSVP} target="_blank" rel="noreferrer" className="border border-gold px-4 py-1 text-gold hover:bg-gold hover:text-foreground">Confirmar asistencia</a>
         </nav>
         <div className="relative text-ivory">
           <p className="text-xs tracking-[0.5em] text-gold uppercase">Nos casamos</p>
@@ -147,7 +147,7 @@ function Index() {
       {/* Fecha y lugar */}
       <section id="lugar" className="bg-foreground px-6 py-28 text-ivory">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs tracking-[0.45em] text-gold uppercase">Cuándo y dónde</p>
+          <p className="text-xs tracking-[0.45em] text-rose-light uppercase">Cuándo y dónde</p>
           <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">Sábado 13 de marzo, 2027</h2>
           <div className="gold-rule mx-auto mt-6 w-32" />
           <Countdown />
@@ -170,7 +170,7 @@ function Index() {
           <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground">
             Queremos que brilles con nosotros. Te pedimos vestimenta elegante para celebrar esta noche tan especial.
           </p>
-          <div className="mt-12 border border-rose bg-blush px-8 py-10">
+          <div className="mt-12 border border-gold bg-blush px-8 py-10">
             <p className="text-[10px] tracking-[0.4em] text-rose uppercase">Atención · Damas</p>
             <p className="mt-5 font-serif text-3xl leading-snug md:text-4xl">
               Las mujeres <span className="font-semibold text-rose">NO deben vestir rosado</span>.
