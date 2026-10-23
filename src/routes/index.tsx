@@ -9,9 +9,9 @@ import f5 from "@/assets/foto-5.jpeg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mily & Pietra · Nos casamos · 13.03.2027" },
-      { name: "description", content: "Milagros y Alan se casan el 13 de marzo de 2027 en Villa Adelina. ¡Te esperamos!" },
-      { property: "og:title", content: "Mily & Pietra · ¡Nos casamos!" },
+      { title: "Alan & Mily · Nos casamos · 13.03.2027" },
+      { name: "description", content: "Alan y Milagros se casan el 13 de marzo de 2027 en Villa Adelina. ¡Te esperamos!" },
+      { property: "og:title", content: "Alan & Mily · ¡Nos casamos!" },
       { property: "og:description", content: "13 de marzo de 2027 · Villa Adelina, Buenos Aires" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -22,6 +22,8 @@ export const Route = createFileRoute("/")({
 
 const WEDDING = new Date("2027-03-13T00:00:00-03:00").getTime();
 const ADDRESS = "Manuela Pedraza 3839, Villa Adelina, Provincia de Buenos Aires";
+const RSVP =
+  "https://docs.google.com/forms/d/e/1FAIpQLSddXc1Fx3M1_J47VH-IlLmUDKAEGTtLHxFEn6ZviqmyT53hgg/viewform?usp=publish-editor";
 const PHOTOS = [f1, f2, f3, f4, f5].map((f) => f.url);
 
 function Splash({ onDone }: { onDone: () => void }) {
@@ -36,12 +38,12 @@ function Splash({ onDone }: { onDone: () => void }) {
       onClick={() => { setLeaving(true); setTimeout(onDone, 900); }}
       className={`fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-center bg-foreground text-ivory transition-opacity duration-1000 ${leaving ? "opacity-0" : "opacity-100"}`}
     >
-      <p className="animate-rise font-sans text-xs tracking-[0.5em] text-gold uppercase">Mily & Pietra</p>
+      <p className="animate-rise font-sans text-xs tracking-[0.5em] text-gold uppercase">Alan &amp; Mily</p>
       <h1 className="animate-rise mt-6 px-6 text-center font-serif text-6xl font-light tracking-[0.12em] md:text-8xl" style={{ animationDelay: ".4s" }}>
         ¡NOS CASAMOS!
       </h1>
       <div className="animate-rise gold-rule mt-8 w-48" style={{ animationDelay: ".9s" }} />
-      <p className="animate-rise mt-6 font-serif text-xl italic text-gold" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
+      <p className="animate-rise mt-6 font-serif text-xl italic text-rose" style={{ animationDelay: "1.3s" }}>13 · 03 · 2027</p>
     </div>
   );
 }
@@ -91,6 +93,19 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   );
 }
 
+function RsvpButton({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={RSVP}
+      target="_blank"
+      rel="noreferrer"
+      className={`inline-block border border-rose bg-rose px-9 py-4 text-[11px] tracking-[0.35em] text-ivory uppercase transition-colors hover:bg-gold hover:border-gold hover:text-foreground ${className}`}
+    >
+      Confirmar asistencia
+    </a>
+  );
+}
+
 function Index() {
   const [showSplash, setShowSplash] = useState(true);
   const links = [["Fotos", "#fotos"], ["Cuándo y dónde", "#lugar"], ["Vestimenta", "#vestimenta"], ["Regalo", "#regalo"]];
@@ -101,17 +116,19 @@ function Index() {
 
       {/* Portada */}
       <header className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
-        <img src={PHOTOS[0]} alt="Mily y Pietra" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={PHOTOS[0]} alt="Alan y Mily" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-foreground/60" />
         <nav className="absolute top-0 right-0 left-0 hidden justify-center gap-10 py-6 text-[11px] tracking-[0.35em] text-ivory/80 uppercase md:flex">
           {links.map(([l, h]) => <a key={h} href={h} className="hover:text-gold">{l}</a>)}
+          <a href={RSVP} target="_blank" rel="noreferrer" className="border border-rose px-4 py-1 text-rose hover:bg-rose hover:text-ivory">Confirmar asistencia</a>
         </nav>
         <div className="relative text-ivory">
           <p className="text-xs tracking-[0.5em] text-gold uppercase">Nos casamos</p>
-          <h1 className="mt-6 font-script text-7xl md:text-9xl">Mily <span className="text-gold">&</span> Pietra</h1>
-          <p className="mt-4 font-serif text-lg italic text-ivory/80">Milagros & Alan</p>
+          <h1 className="mt-6 font-script text-7xl md:text-9xl">Alan <span className="text-gold">&</span> Mily</h1>
+          <p className="mt-4 font-serif text-lg italic text-ivory/80">Alan & Milagros</p>
           <div className="gold-rule mx-auto mt-8 w-40" />
           <p className="mt-6 font-serif text-2xl tracking-[0.3em]">13 · 03 · 2027</p>
+          <RsvpButton className="mt-12" />
         </div>
       </header>
 
@@ -121,7 +138,7 @@ function Index() {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {PHOTOS.map((src, i) => (
             <div key={src} className={`overflow-hidden ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-[3/4]"}`}>
-              <img src={src} alt={`Mily y Pietra ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
+              <img src={src} alt={`Alan y Mily ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
             </div>
           ))}
         </div>
@@ -153,7 +170,25 @@ function Index() {
           <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground">
             Queremos que brilles con nosotros. Te pedimos vestimenta elegante para celebrar esta noche tan especial.
           </p>
+          <div className="mt-12 border border-rose bg-blush px-8 py-10">
+            <p className="text-[10px] tracking-[0.4em] text-rose uppercase">Atención · Damas</p>
+            <p className="mt-5 font-serif text-3xl leading-snug md:text-4xl">
+              Las mujeres <span className="font-semibold text-rose">NO deben vestir rosado</span>.
+            </p>
+            <p className="mt-5 font-serif text-lg italic text-muted-foreground">
+              El rosado es un color reservado para la novia. Te pedimos elegir otro tono.
+            </p>
+          </div>
         </div>
+      </section>
+
+      {/* Confirmación de asistencia */}
+      <section id="asistencia" className="border-t border-border bg-blush px-6 py-28 text-center">
+        <SectionTitle kicker="Confirmación" title="¿Nos acompañás?" />
+        <p className="mx-auto max-w-xl font-serif text-xl leading-relaxed text-muted-foreground">
+          Completá el formulario para confirmarnos si vas a estar con nosotros ese día.
+        </p>
+        <RsvpButton className="mt-10" />
       </section>
 
       {/* Regalo */}
@@ -175,8 +210,9 @@ function Index() {
       </section>
 
       <footer className="bg-foreground py-16 text-center text-ivory">
-        <p className="font-script text-5xl">Mily <span className="text-gold">&</span> Pietra</p>
+        <p className="font-script text-5xl">Alan <span className="text-gold">&</span> Mily</p>
         <p className="mt-3 text-[11px] tracking-[0.4em] text-ivory/60 uppercase">13 · 03 · 2027</p>
+        <RsvpButton className="mt-8" />
       </footer>
     </div>
   );
