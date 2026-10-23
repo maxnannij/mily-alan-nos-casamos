@@ -58,7 +58,7 @@ function Countdown() {
       {parts.map(([l, v]) => (
         <div key={l} className="text-center">
           <div className="font-serif text-4xl font-light md:text-5xl">{now === null ? "–" : String(v).padStart(2, "0")}</div>
-          <div className="mt-1 text-[10px] tracking-[0.3em] text-muted-foreground uppercase">{l}</div>
+          <div className="mt-1 text-[10px] tracking-[0.3em] text-ivory/60 uppercase">{l}</div>
         </div>
       ))}
     </div>
@@ -147,7 +147,7 @@ function Index() {
       {/* Fecha y lugar */}
       <section id="lugar" className="bg-foreground px-6 py-28 text-ivory">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs tracking-[0.45em] text-gold uppercase">Cuándo y dónde</p>
+          <p className="text-xs tracking-[0.45em] text-rose uppercase">Cuándo y dónde</p>
           <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">Sábado 13 de marzo, 2027</h2>
           <div className="gold-rule mx-auto mt-6 w-32" />
           <Countdown />
