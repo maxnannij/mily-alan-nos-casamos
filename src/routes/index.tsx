@@ -117,7 +117,13 @@ function MusicToggle() {
 
   useEffect(() => {
     start();
-    const onFirstGesture = () => start();
+    const onFirstGesture = (e: Event) => {
+      // If the first gesture is on the music button itself, the button's own
+      // toggle handles play/pause; starting here would immediately pause it.
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("[data-music-toggle]")) return;
+      start();
+    };
     window.addEventListener("pointerdown", onFirstGesture, { once: true });
     window.addEventListener("keydown", onFirstGesture, { once: true });
     window.addEventListener("touchstart", onFirstGesture, { once: true });
@@ -139,6 +145,7 @@ function MusicToggle() {
       <audio ref={audioRef} src={musicAsset.url} loop preload="auto" />
       <button
         onClick={toggle}
+        data-music-toggle
         aria-label={playing ? "Pausar la música" : "Reproducir la música"}
         className="fixed right-5 bottom-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-gold/70 bg-foreground/70 text-gold shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-foreground"
       >
