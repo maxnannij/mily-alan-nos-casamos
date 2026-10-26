@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import f1 from "@/assets/foto-1.jpeg.asset.json";
 import f2 from "@/assets/foto-2.jpeg.asset.json";
 import f3 from "@/assets/foto-3.jpeg.asset.json";
 import f4 from "@/assets/foto-4.jpeg.asset.json";
 import f5 from "@/assets/foto-5.jpeg.asset.json";
+import musicAsset from "@/assets/musica-fondo.mp3.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -106,6 +107,58 @@ function RsvpButton({ className = "" }: { className?: string }) {
   );
 }
 
+function MusicToggle() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const start = () => {
+    audioRef.current?.play().then(() => setPlaying(true)).catch(() => {});
+  };
+
+  useEffect(() => {
+    start();
+    const onFirstGesture = () => start();
+    window.addEventListener("pointerdown", onFirstGesture, { once: true });
+    window.addEventListener("keydown", onFirstGesture, { once: true });
+    window.addEventListener("touchstart", onFirstGesture, { once: true });
+    return () => {
+      window.removeEventListener("pointerdown", onFirstGesture);
+      window.removeEventListener("keydown", onFirstGesture);
+      window.removeEventListener("touchstart", onFirstGesture);
+    };
+  }, []);
+
+  const toggle = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (a.paused) { start(); } else { a.pause(); setPlaying(false); }
+  };
+
+  return (
+    <>
+      <audio ref={audioRef} src={musicAsset.url} loop preload="auto" />
+      <button
+        onClick={toggle}
+        aria-label={playing ? "Pausar la música" : "Reproducir la música"}
+        className="fixed right-5 bottom-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-gold/70 bg-foreground/70 text-gold shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-foreground"
+      >
+        {playing ? (
+          <svg viewBox="0 0 24 24" fill="currentColor" className="h-[16px] w-[16px]">
+            <rect x="6" y="4" width="4" height="16" rx="1" />
+            <rect x="14" y="4" width="4" height="16" rx="1" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[16px] w-[16px]">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+          </svg>
+        )}
+      </button>
+    </>
+  );
+}
+
 function Index() {
   const [showSplash, setShowSplash] = useState(true);
   const links = [["Fotos", "#fotos"], ["Cuándo y dónde", "#lugar"], ["Vestimenta", "#vestimenta"], ["Regalo", "#regalo"]];
@@ -113,6 +166,8 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {showSplash && <Splash onDone={() => setShowSplash(false)} />}
+
+      <MusicToggle />
 
       {/* Portada */}
       <header className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
@@ -179,6 +234,12 @@ function Index() {
               El rosado es un color reservado para la novia. Te pedimos elegir otro tono.
             </p>
           </div>
+          <div className="mt-6 border border-gold bg-blush px-8 py-8">
+            <p className="text-[10px] tracking-[0.4em] text-gold-deep uppercase">Solo adultos</p>
+            <p className="mt-4 font-serif text-2xl leading-snug md:text-3xl">
+              Amamos a los peques, pero esta noche <span className="font-semibold text-rose">no se permiten niños</span>.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -213,6 +274,7 @@ function Index() {
         <p className="font-script text-5xl">Alan <span className="text-gold">&</span> Mily</p>
         <p className="mt-3 text-[11px] tracking-[0.4em] text-ivory/60 uppercase">13 · 03 · 2027</p>
         <RsvpButton className="mt-8" />
+        <p className="mt-6 text-[9px] tracking-[0.25em] text-ivory/40 uppercase">Música: Gymnopédie No. 1 · Erik Satie · CC BY 4.0</p>
       </footer>
     </div>
   );
