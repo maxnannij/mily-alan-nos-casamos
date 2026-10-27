@@ -242,9 +242,9 @@ function Index() {
       <section id="vestimenta" className="px-6 py-28">
         <SectionTitle kicker="Dress code" title="Código de vestimenta" />
         <div className="mx-auto max-w-xl text-center">
-          <p className="font-script text-6xl text-gold md:text-7xl">Elegante</p>
+          <p className="font-script text-5xl text-gold md:text-6xl">Elegante Sport</p>
           <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground">
-            Queremos que brilles con nosotros. Te pedimos vestimenta elegante para celebrar esta noche tan especial.
+            Queremos que brilles con nosotros. Te pedimos vestimenta elegante sport para celebrar esta noche tan especial.
           </p>
           <div className="mt-12 border border-gold bg-blush px-8 py-10">
             <p className="text-[10px] tracking-[0.4em] text-rose uppercase">Atención · Damas</p>
