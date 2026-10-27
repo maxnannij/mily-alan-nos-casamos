@@ -5,7 +5,6 @@ import f2 from "@/assets/foto-2.jpeg.asset.json";
 import f3 from "@/assets/foto-3.jpeg.asset.json";
 import f4 from "@/assets/foto-4.jpeg.asset.json";
 import f5 from "@/assets/foto-5.jpeg.asset.json";
-import f6 from "@/assets/foto-6.jpeg.asset.json";
 import musicAsset from "@/assets/musica-fondo.mp3.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -26,7 +25,7 @@ const WEDDING = new Date("2027-03-13T00:00:00-03:00").getTime();
 const ADDRESS = "Manuela Pedraza 3839, Villa Adelina, Provincia de Buenos Aires";
 const RSVP =
   "https://docs.google.com/forms/d/e/1FAIpQLSddXc1Fx3M1_J47VH-IlLmUDKAEGTtLHxFEn6ZviqmyT53hgg/viewform?usp=publish-editor";
-const PHOTOS = [f1, f2, f3, f4, f5, f6].map((f) => f.url);
+const PHOTOS = [f1, f2, f3, f4, f5].map((f) => f.url);
 
 function Splash({ onDone }: { onDone: () => void }) {
   const [leaving, setLeaving] = useState(false);
@@ -204,6 +203,20 @@ function Index() {
               <img src={src} alt={`Alan y Mily ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Versículo */}
+      <section id="versiculo" className="border-t border-border px-6 py-24 text-center">
+        <div className="mx-auto max-w-2xl">
+          <div className="gold-rule mx-auto w-16" />
+          <p className="mt-10 font-serif text-2xl italic leading-relaxed md:text-3xl">
+            «Mejor son dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno
+            levanta al otro. ¡Ay del que cae y no tiene quien lo levante!»
+          </p>
+          <p className="mt-8 text-[11px] tracking-[0.35em] text-gold-deep uppercase">
+            Eclesiastés 4:9-10 · NVI
+          </p>
         </div>
       </section>
 
