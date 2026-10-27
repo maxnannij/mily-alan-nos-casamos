@@ -5,6 +5,7 @@ import f2 from "@/assets/foto-2.jpeg.asset.json";
 import f3 from "@/assets/foto-3.jpeg.asset.json";
 import f4 from "@/assets/foto-4.jpeg.asset.json";
 import f5 from "@/assets/foto-5.jpeg.asset.json";
+import f6 from "@/assets/foto-6.jpeg.asset.json";
 import musicAsset from "@/assets/musica-fondo.mp3.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -25,7 +26,7 @@ const WEDDING = new Date("2027-03-13T00:00:00-03:00").getTime();
 const ADDRESS = "Manuela Pedraza 3839, Villa Adelina, Provincia de Buenos Aires";
 const RSVP =
   "https://docs.google.com/forms/d/e/1FAIpQLSddXc1Fx3M1_J47VH-IlLmUDKAEGTtLHxFEn6ZviqmyT53hgg/viewform?usp=publish-editor";
-const PHOTOS = [f1, f2, f3, f4, f5].map((f) => f.url);
+const PHOTOS = [f1, f2, f3, f4, f5, f6].map((f) => f.url);
 
 function Splash({ onDone }: { onDone: () => void }) {
   const [leaving, setLeaving] = useState(false);
