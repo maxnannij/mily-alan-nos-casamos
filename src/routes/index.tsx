@@ -227,7 +227,17 @@ function Index() {
           <h2 className="mt-3 font-serif text-5xl font-light md:text-6xl">Sábado 13 de marzo, 2027</h2>
           <div className="gold-rule mx-auto mt-6 w-32" />
           <Countdown />
-          <p className="mt-16 font-serif text-2xl italic">Manuela Pedraza 3839</p>
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+            <div>
+              <p className="text-[10px] tracking-[0.35em] text-ivory/60 uppercase">Invitados citados</p>
+              <p className="mt-1 font-serif text-4xl font-light md:text-5xl">20:00 <span className="text-base tracking-[0.3em] text-ivory/70 uppercase">h</span></p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.35em] text-rose-light uppercase">Ceremonia</p>
+              <p className="mt-1 font-serif text-4xl font-light md:text-5xl">20:30 <span className="text-base tracking-[0.3em] text-ivory/70 uppercase">h</span></p>
+            </div>
+          </div>
+          <p className="mt-14 font-serif text-2xl italic">Manuela Pedraza 3839</p>
           <p className="mt-1 text-sm tracking-[0.2em] text-ivory/70 uppercase">Villa Adelina · Provincia de Buenos Aires</p>
           <div className="mt-10 aspect-video w-full overflow-hidden border border-gold/40">
             <iframe title="Mapa" className="h-full w-full grayscale" loading="lazy" src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`} />
